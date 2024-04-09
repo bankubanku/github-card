@@ -1,38 +1,54 @@
-function appendImg(mainSection, src, alt, id) {
+function appendImg(section, src, alt, id) {
     const pfp = document.createElement("img");
     pfp.src = src; 
     pfp.alt = alt;
     pfp.id = id;
-    mainSection.appendChild(pfp);
+    section.appendChild(pfp);
 }
 
-function appendInfo(mainSection, tag, content, id) {
+function appendInfo(section, tag, content, id) {
     const name = document.createElement(tag);
     const textNode = document.createTextNode(content);
     name.id = id
     name.appendChild(textNode);
-    mainSection.appendChild(name);
+    section.appendChild(name);
+}
+
+function createMainInfoSection(userData, mainSection) {
+    const mainInfo = document.createElement("div");
+
+    mainInfo.id = "main-info";
+    mainSection.appendChild(mainInfo);
+
+    appendImg(mainInfo, userData.avatar_url, "profile picture", "pfp");
+    appendInfo(mainInfo, "h1", userData.name, "name");
+    appendInfo(mainInfo, "h2", userData.login, "login");
+    appendInfo(mainInfo, "P", userData.bio, "bio");
+}
+
+
+function createUserInfoSection(userData, mainSection) {
+    const userInfo = document.createElement("div");
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var createdAtDate = new Date(userData.created_at); 
+    createdAtDate = `${months[createdAtDate.getMonth()]} ${createdAtDate.getFullYear()}`
+
+    userInfo.id = "user-info";
+    mainSection.appendChild(userInfo);
+    
+    appendInfo(userInfo, "h1", `About ${userData.name}:`, "about-user")
+    appendInfo(userInfo, "h5", `Follows ${userData.following} people`, "following");
+    appendInfo(userInfo, "h5", `Followed by ${userData.followers}`, "followers");
+    appendInfo(userInfo, "h5", `Member since ${createdAtDate}`, "created-at");
+    appendInfo(userInfo, "h5", `Lives in ${userData.location}`, "location");
 }
 
 
 function displayData(userData) {
-    const chosenData = [
-        "login", 
-        "repos_url", 
-        "company", 
-        "location", 
-        "bio", 
-        "email", 
-        "public_repos", 
-        "followers", 
-        "following", 
-        "created_at"
-    ];
-    
     const mainSection = document.getElementsByTagName("main")[0];
 
-    appendImg(mainSection, userData.avatar_url, "profile picture", "pfp");
-    appendInfo(mainSection, "h1", userData.name, "name");
+    createMainInfoSection(userData, mainSection);
+    createUserInfoSection(userData, mainSection);
 }
 
 
