@@ -1,0 +1,92 @@
+@font-face {
+    font-family: HappyLucky;
+    src: url("../assets/HappyLucky-gxnZP.ttf");
+}
+
+body {
+    /* font-family: HappyLucky, sans-serif; */
+}
+
+header {
+    text-align: center;
+}
+
+form { 
+    width: 50%;
+    margin: auto;
+    height: 45px;
+    display: flex;
+}
+
+input[type=text] {
+    width: 70%;
+    height: 100%;
+    margin: 0;
+    margin-right: 15px;
+    border-radius: 5px;
+    border: gray solid 2px;
+    outline: none;
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;   
+}
+
+input[type=text]:focus {
+    border: 2px solid pink;
+}
+
+button {
+    width: 20%;
+    height: 100%;
+    border-radius: 5px;
+    font-size: 125%;
+    background-color: white;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;   
+    border: gray solid 2px;
+}
+
+button:hover {
+    border-color: pink;
+    background-color: light-gray;
+}
+
+button:active {
+    background-color: pink;
+}
+
+main {
+    display: grid;
+    grid-template-areas: 
+        "main-info user-info"
+        "main-info repos-info";
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
+
+    margin: auto;
+    text-align: center;
+}
+
+#main-info {
+    grid-area: main-info;
+}
+
+#user-info {
+    grid-area: user-info;
+}
+
+#repos-info {
+    grid-area: repos-info;
+}
+
+footer {
+    position: absolute;
+    color: white;
+    background-color: black;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+}
