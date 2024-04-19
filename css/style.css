@@ -1,10 +1,20 @@
 @font-face {
-    font-family: HappyLucky;
-    src: url("../assets/HappyLucky-gxnZP.ttf");
+    font-family: megufont;
+    src: url(../assets/fonts/Megufont-Regular.ttf);
 }
 
 body {
-    /* font-family: HappyLucky, sans-serif; */
+    font-size: 110%;
+    font-family: megufont, sans-serif;
+}
+
+body {
+    background-color: #FFFBF5;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -30,10 +40,12 @@ input[type=text] {
     transition: 0.25s;
     box-sizing: border-box;
     -moz-box-sizing: border-box;   
+    font-size: 110%;
+    font-family: megufont, sans-serif;
 }
 
 input[type=text]:focus {
-    border: 2px solid pink;
+    border: 2px solid #E6A4B4;
 }
 
 button {
@@ -45,15 +57,17 @@ button {
     box-sizing: border-box;
     -moz-box-sizing: border-box;   
     border: gray solid 2px;
+    font-size: 110%;
+    font-family: megufont, sans-serif;
 }
 
 button:hover {
-    border-color: pink;
+    border-color: #E6A4B4;
     background-color: light-gray;
 }
 
 button:active {
-    background-color: pink;
+    background-color: #E6A4B4;
 }
 
 main {
@@ -61,32 +75,57 @@ main {
     grid-template-areas: 
         "main-info user-info"
         "main-info repos-info";
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr 1fr;
-
+    grid-template-columns: 1.5fr 1fr;
+    grid-gap: 20px;
+    min-height: 700px;
+    padding: 20px;
     margin: auto;
     text-align: center;
 }
 
+#main-info, #user-info, #repos-info {
+    border-radius: 1rem;
+    padding: 2em;
+}
+
+#user-info, #repos-info {
+    text-align: start;
+}
 #main-info {
+    display: flex;
+    flex-direction: column;
     grid-area: main-info;
+    background-color: #F3D7CA;
+}
+
+#pfp {
+    border-radius: 1rem;
+    margin: auto;
+    height: 400px;
+    width: 400px;
+}
+
+#login {
+    margin-top: 0px;
+    color: darkgray;
 }
 
 #user-info {
     grid-area: user-info;
+    background-color: #FFF8E3;
 }
 
 #repos-info {
     grid-area: repos-info;
+    background-color: #F5EEE6;
 }
+
+
 
 footer {
     position: absolute;
-    color: white;
-    background-color: black;
     text-align: center;
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 15px;
 }
