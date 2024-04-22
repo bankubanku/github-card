@@ -21,18 +21,12 @@ header {
     text-align: center;
 }
 
-form { 
-    width: 50%;
-    margin: auto;
-    height: 45px;
+#search-form { 
     display: flex;
+    margin: auto;
 }
 
 input[type=text] {
-    width: 70%;
-    height: 100%;
-    margin: 0;
-    margin-right: 15px;
     border-radius: 5px;
     border: gray solid 2px;
     outline: none;
@@ -49,8 +43,6 @@ input[type=text]:focus {
 }
 
 button {
-    width: 20%;
-    height: 100%;
     border-radius: 5px;
     font-size: 125%;
     background-color: white;
@@ -83,6 +75,7 @@ main {
     text-align: center;
 }
 
+
 #main-info, #user-info, #repos-info {
     border-radius: 1rem;
     padding: 2em;
@@ -91,6 +84,7 @@ main {
 #user-info, #repos-info {
     text-align: start;
 }
+
 #main-info {
     display: flex;
     flex-direction: column;
@@ -101,8 +95,6 @@ main {
 #pfp {
     border-radius: 1rem;
     margin: auto;
-    height: 400px;
-    width: 400px;
 }
 
 #login {
@@ -120,12 +112,90 @@ main {
     background-color: #F5EEE6;
 }
 
-
-
 footer {
-    position: absolute;
     text-align: center;
-    bottom: 0;
+    bottom: 0px;
     left: 0;
     width: 100%;
+}
+
+
+@media only screen and (max-width: 500px) {
+    #pfp {
+        width: 200px;
+        height: 200px;
+    }
+
+    #submit-search {
+        width: 100px;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    #pfp {
+        width: 350px;
+        height: 350px;
+    }
+
+    #submit-search {
+        width: 120px;
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    #search-form {
+        flex-direction: column;
+        margin: auto;
+        width: 75%;
+        height: 100px;
+    }
+    
+    #search-input {
+        width: 100%;
+        margin-bottom: 10px;
+        height: 45px;
+    }
+
+    #submit-search {
+        margin: auto;
+        height: 45px;
+    }
+}
+
+@media only screen and (min-width: 680px) {
+    #search-form {
+        width: 50%;
+        height: 45px;
+    }
+
+    #search-input {
+        width: 70%;
+        height: 100%;
+        margin-right: 15px;
+    }
+
+    #submit-search {
+        width: 125px;
+        height: 100%;
+    }
+
+    #pfp {
+        width: 400px;
+        height: 400px;
+    }
+}
+
+@media only screen and (max-width: 840px) {
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (min-width: 840px) {
+    html, body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+    }
 }
